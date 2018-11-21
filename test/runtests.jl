@@ -32,5 +32,13 @@ using Test
     iv=BigFloat(3)
     @test newtonroot(g,g_prime, iv)≈ 1.0000001808754536763325638480
     @test newtonroot(g, iv)≈ 1.0000001808754536763325638480
-
+    # test Int
+    iv=3
+    @test newtonroot(g,g_prime, iv)≈ 1.0000001808754536763325638480
+    @test newtonroot(g, iv)≈ 1.0000001808754536763325638480
+    # test complicated function
+    k(x)=exp(x)-3+sin(x)
+    k_prime(x)=exp(x)+cos(x)
+    @test newtonroot(k,k_prime, iv)≈ 0.8194425797965913
+    @test newtonroot(k, iv)≈ 0.8194425797965913
 end
