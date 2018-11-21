@@ -16,7 +16,7 @@ using Test
     solu = newtonroot(g, g_prime, iv, tolerance = 1)
     solut= newtonroot(g, iv, tolerance =  1)
     @test !( solu  ≈ 1.0000001545213348)
-    @test ( solut ≈ 1.00000013565)
+    @test !( solut ≈ 1.00000013565)
 
     # test 4: make sure maxiter works
     soluti  = newtonroot(g, g_prime, iv,maxiter= 5 )
